@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 data:
-  lego.email: fredrik@brynn.se
+  lego.email: fredrik@fre.la
   lego.url: https://acme-v01.api.letsencrypt.org/directory
 metadata:
   name: config

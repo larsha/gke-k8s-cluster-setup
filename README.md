@@ -9,5 +9,5 @@ kubectl create -f storage.yml
 kubectl create -f kube-lego.yml
 
 # Create Nginx ingress
-kubectl create -f ingress.yml
+kubectl create -f kube-ingress.yml
 ```

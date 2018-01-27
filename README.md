@@ -1,13 +1,16 @@
 # Setup cluster on GKE
-Including nginx ingress, let's encrypt and ssd storage class for dynamic provision of PersistentVolumes.
 
 ```bash
 # Create SSD StorageClass
 kubectl create -f storage.yml
 
-# Create Let's Encrypt automation
-kubectl create -f kube-lego.yml
+# Setup Tiller/Helm (make sure you have Helm installed locally)
+kubectl create -f rbac-config.yml
+helm init --service-account tiller
 
 # Create Nginx ingress
 kubectl create -f kube-ingress.yml
+
+# Create LE
+kubectl create -f kube-lego.yml
 ```

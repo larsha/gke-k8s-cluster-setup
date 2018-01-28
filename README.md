@@ -8,9 +8,18 @@ kubectl create -f storage.yml
 kubectl create -f rbac-config.yml
 helm init --service-account tiller
 
-# Create Nginx ingress
+# Create Nginx ingress (if needed)
 kubectl create -f kube-ingress.yml
+```
 
-# Create LE
-kubectl create -f kube-lego.yml
+### Intall cert-manager
+1. Install https://github.com/jetstack/cert-manager
+2. Create new Service Account `clouddns-service-account` with full access to Cloud DNS and download the key as JSON.
+3. Create a secret with that service account using
+`kubectl create secret -n kube-system generic clouddns-service-account --from-file=./service-account.json`
+4. Remove key locally!
+
+```bash
+  # Create cert-manager
+  kubectl create -f clusterissuer.yml
 ```
